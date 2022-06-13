@@ -1,1 +1,1 @@
-web: gunicorn Aero_Backend:app
+web: gunicorn server:app
