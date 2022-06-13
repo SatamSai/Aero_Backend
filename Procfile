@@ -1,0 +1,1 @@
+web: gunicorn Aero_server.app
