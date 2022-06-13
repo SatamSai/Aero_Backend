@@ -134,5 +134,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'images/')
 
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
-    'http://localhost:3000',
+    'https://suspicious-engelbart-06d849.netlify.app/',
 )
