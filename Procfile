@@ -1,1 +1,1 @@
-web: gunicorn Aero_server.app
+web: gunicorn aero-server.app
