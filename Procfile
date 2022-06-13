@@ -1,1 +1,1 @@
-web: gunicorn aero-server.wsgi --log-file -
+web: gunicorn Aero_Backend:app
