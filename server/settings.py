@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-g)kjr8zy3j0m^l8b#gw-!g$ls^_*wm1=$%ebd*7tw3%at=ye-v'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['aero-server.herokuapp.com']
+ALLOWED_HOSTS = ['aero-server.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -134,5 +134,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'images/')
 
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
-    'https://suspicious-engelbart-06d849.netlify.app/',
+    'https://suspicious-engelbart-06d849.netlify.app',
 )
