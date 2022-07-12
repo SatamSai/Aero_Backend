@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 import mimetypes
 
 
@@ -30,7 +31,7 @@ SECRET_KEY = 'django-insecure-g)kjr8zy3j0m^l8b#gw-!g$ls^_*wm1=$%ebd*7tw3%at=ye-v
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['aero-server.herokuapp.com']
+ALLOWED_HOSTS = ['localhost','aero-server.herokuapp.com']
 
 
 # Application definition
@@ -92,7 +93,9 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+db_from_env= dj_database_url.config(conn_max_age=600)
 
+DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -141,4 +144,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
     'https://aerotest.netlify.app',
+    'http://localhost:3000'
 )
