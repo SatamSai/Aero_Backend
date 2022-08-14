@@ -7,19 +7,19 @@ class Event(models.Model):
     speaker=models.CharField(max_length=200,default="")
     eventdate=models.DateField()
     eventdesc=models.TextField(max_length=1000,default="No Description")
-    poster_img=models.ImageField(null=False,upload_to="")
+    poster_img_id=models.CharField(max_length=100,null=False,default="")
     def __str__(self):
         return self.eventname
 
 class EventImage(models.Model):
     event=models.ForeignKey(Event,on_delete=models.CASCADE,default=1)
     imgname=models.CharField(max_length=50,default="no name")
-    img=models.ImageField(null=False,upload_to="")
+    img_id=models.CharField(max_length=100,null=False,default="",help_text="Make sure Google Drive image is public")
     def __str__(self):
         return self.imgname
     def image_tag(self):
-        if self.img:
-            img_path="http://127.0.0.1:8000/images/"+str(self.img)
+        if self.img_id:
+            img_path="http://drive.google.com/uc?export=view&id="+str(self.img_id)
             return mark_safe('<img src="%s" style="height:45px;" />' % img_path)
         else:
             return 'No Image Found'
@@ -30,19 +30,19 @@ class Competition(models.Model):
     competitionDesc=models.TextField(max_length=1000)
     achievements=models.CharField(max_length=150,blank=True)
     year=models.CharField(max_length=5,default="20")
-    poster_img=models.ImageField(null=False,upload_to="")
+    poster_img_id=models.CharField(max_length=100,null=False,default="")
     def __str__(self):
         return self.competitionName
 
 class CompetitionImage(models.Model):
     event=models.ForeignKey(Competition,on_delete=models.CASCADE,default=1)
     imgname=models.CharField(max_length=50,default="no name")
-    img=models.ImageField(null=False,upload_to="")
+    img_id=models.CharField(max_length=100,null=False,default="")
     def __str__(self):
         return self.imgname
     def image_tag(self):
-        if self.img:
-            img_path="http://127.0.0.1:8000/images/"+str(self.img)
+        if self.img_id:
+            img_path="http://drive.google.com/uc?export=view&id="+str(self.img_id)
             return mark_safe('<img src="%s" style="height:45px;" />' % img_path)
         else:
             return 'No Image Found'
@@ -50,7 +50,7 @@ class CompetitionImage(models.Model):
 
 class TeamMember(models.Model):
     membername=models.CharField(max_length=150)
-    profileImg=models.ImageField(null=False,upload_to="")
+    img_id=models.CharField(max_length=100,default="")
     year=models.CharField(max_length=10)
     role=models.CharField(max_length=50)
     def __str__(self):

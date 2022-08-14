@@ -10,7 +10,7 @@ class EventSerializer(serializers.ModelSerializer):
 class EventIdImgSerializer(serializers.ModelSerializer):
     class Meta:
         model=EventImage
-        fields=['id','img']
+        fields=['id','img_id']
 
 class CompetitionSerializer(serializers.ModelSerializer):
     class Meta:
@@ -20,7 +20,7 @@ class CompetitionSerializer(serializers.ModelSerializer):
 class CompetitionImgSerializer(serializers.ModelSerializer):
     class Meta:
         model=CompetitionImage
-        fields=['id','img']
+        fields=['id','img_id']
 
 class TeamMemberSerializer(serializers.ModelSerializer):
     class Meta:
